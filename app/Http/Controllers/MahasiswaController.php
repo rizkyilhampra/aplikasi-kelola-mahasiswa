@@ -24,7 +24,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa.index', [
+        return view('mahasiswa.mahasiswa', [
             'mahasiswas' => Mahasiswa::all()
         ]);
     }
