@@ -1,4 +1,4 @@
-<div class="{{ $col }}">
+<div class="{{ $col ?? 'col-12' }}">
     <div class="form-group">
         {{ $label }}
         {{ $slot }}

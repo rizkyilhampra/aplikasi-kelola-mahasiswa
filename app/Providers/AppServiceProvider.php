@@ -34,12 +34,12 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo \$errors->has($errorName) ? 'is-invalid' : ''; ?>";
         });
 
-        View::composer(['layouts.layout-vertical.navbar', 'index'], function ($view) {
+        View::composer(['layouts.app.navbar', 'dashboard'], function ($view) {
             $name = auth()->user()->name ?? 'Guest';
             $view->with('name', $name);
         });
 
-        View::composer('layouts.layout-vertical.navbar', function ($view) {
+        View::composer('layouts.app.navbar', function ($view) {
             $role = AuthGroupUser::with(['authGroup' => function ($query) {
                 $query->select('id', 'name');
             }])->where('user_id', auth()->user()->id ?? null)->first('auth_group_id');
