@@ -3,7 +3,7 @@
         <li class="breadcrumb-item "><a href="{{ route('mahasiswa.index') }}">Mahasiswa</a></li>
         <li class="breadcrumb-item active" aria-current="page">Ubah Data Mahasiswa</li>
     </x-page-heading>
-    <x-form route="{{ route('mahasiswa.update') }}" method="POST" overrideMethod="PUT">
+    <x-form route="{{ route('mahasiswa.update', $mahasiswa->id) }}" method="POST" overrideMethod="PUT">
         <x-form-group col="col-md-6 col-12" label="NIM" :invalid-feedback="$errors->first('NIM')">
             <x-input type="text" name="NIM" :value="$mahasiswa->NIM" placeholder="Masukkan NIM"
                 required="true"></x-input>
