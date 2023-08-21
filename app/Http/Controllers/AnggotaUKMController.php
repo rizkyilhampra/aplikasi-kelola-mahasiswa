@@ -24,7 +24,6 @@ class AnggotaUKMController extends Controller
      */
     public function index()
     {
-
         return view('anggota-ukm.index', [
             'anggotaUkms' => AnggotaUKM::with('mahasiswa', 'ukm')->get()
         ]);

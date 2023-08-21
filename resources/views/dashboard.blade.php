@@ -1,4 +1,4 @@
-<x-app-layout title="Coba">
+<x-app-layout title="Dashboard">
     <div class="page-content" style="min-height: 70vh">
         @auth
             <x-alert-heading type="primary" title="{{ __('Welcome back ,' . $name) }}">
