@@ -1,17 +1,10 @@
-@extends('layouts.auth.auth')
-
-@section('title', 'Sign Up')
-@section('auth-title', 'Sign Up')
-@section('auth-subtitle', 'Input your data to register to our website.')
-
-@section('auth-footer')
-    <p class="text-gray-600">
-        Already have an account?
-        <a href="{{ route('login') }}" class="font-bold">Log in</a>.
-    </p>
-@endsection
-
-@section('content')
+<x-auth-layout title="Sign Up" authTitle="Sign Up" authSubtitle="Input your data to register to our website.">
+    <x-slot name="authFooter">
+        <p class="text-gray-600">
+            Already have an account?
+            <a href="{{ route('login') }}" class="font-bold">Log in</a>.
+        </p>
+    </x-slot>
     <form action="{{ route('register') }}" method="POST">
         @csrf
         <div class="form-group position-relative has-icon-left mb-4">
@@ -20,15 +13,15 @@
             <div class="form-control-icon">
                 <i class="bi bi-envelope"></i>
             </div>
-            @include('components.invalid-feedback', ['message' => $errors->first('email')])
+            <x-invalid-feedback :message="$errors->first('email')"></x-invalid-feedback>
         </div>
         <div class="form-group position-relative has-icon-left mb-4">
-            <input type="text" name="name" class="form-control form-control-xl @error('name') is-invalid @enderror"
-                placeholder="Username" />
+            <input type="text" name="name"
+                class="form-control form-control-xl @error('name') is-invalid @enderror" placeholder="Username" />
             <div class="form-control-icon">
                 <i class="bi bi-person"></i>
             </div>
-            @include('components.invalid-feedback', ['message' => $errors->first('name')])
+            <x-invalid-feedback :message="$errors->first('name')"></x-invalid-feedback>
         </div>
         <div class="form-group position-relative has-icon-left mb-4">
             <input type="password" name="password"
@@ -36,7 +29,7 @@
             <div class="form-control-icon">
                 <i class="bi bi-shield-lock"></i>
             </div>
-            @include('components.invalid-feedback', ['message' => $errors->first('password')])
+            <x-invalid-feedback :message="$errors->first('password')"></x-invalid-feedback>
         </div>
         <div class="form-group position-relative has-icon-left mb-4">
             <input type="password" name="password_confirmation"
@@ -45,10 +38,10 @@
             <div class="form-control-icon">
                 <i class="bi bi-shield-lock"></i>
             </div>
-            @include('components.invalid-feedback', ['message' => $errors->first('password_cnfirmation')])
+            <x-invalid-feedback :message="$errors->first('password')"></x-invalid-feedback>
         </div>
         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
             Sign Up
         </button>
     </form>
-@endsection
+</x-auth-layout>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title')</title>
+    <title>{{ $title }}</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/svg/favicon.svg') }}" type="image/x-icon" />
     <link rel="shortcut icon"
@@ -25,12 +25,11 @@
                     <div class="auth-logo">
                         <a href="index.html"><img src="{{ asset('assets/svg/logo.svg') }}" alt="Logo" /></a>
                     </div>
-                    <h1 class="auth-title">@yield('auth-title')</h1>
-                    <p class="auth-subtitle mb-5">@yield('auth-subtitle')</p>
-
-                    @yield('content')
+                    <h1 class="auth-title">{{ $authTitle }}</h1>
+                    <p class="auth-subtitle mb-5">{{ $authSubtitle }}</p>
+                    {{ $slot }}
                     <div class="text-center mt-5 text-lg fs-4">
-                        @yield('auth-footer')
+                        {{ $authFooter }}
                     </div>
                 </div>
             </div>
