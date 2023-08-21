@@ -25,8 +25,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('user', function ($user) {
+        Gate::define('admin', function ($user) {
             return $user->authGroup->auth_group_id === 1;
         });
+
+        // Gate::define('user', function ($user) {
+        //     return $user->authGroup->auth_group_id === 2;
+        // });
     }
 }
