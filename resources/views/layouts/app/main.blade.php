@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title')</title>
+    <title>{{ $title }}</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/svg/favicon.svg') }}" type="image/x-icon" />
 
@@ -24,13 +24,13 @@
     <script src="{{ asset('assets/js/initTheme.js') }}"></script>
 
     <div id="app">
-        @include('layouts.layout-vertical.sidebar')
+        @include('layouts.app.sidebar')
         <div id="main" class="layout-navbar navbar-fixed">
-            @include('layouts.layout-vertical.navbar')
+            @include('layouts.app.navbar')
             <div id="main-content">
-                @yield('content')
+                {{ $slot }}
             </div>
-            @include('layouts.layout-vertical.footer')
+            @include('layouts.app.footer')
         </div>
     </div>
 

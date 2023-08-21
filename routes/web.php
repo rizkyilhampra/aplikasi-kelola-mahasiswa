@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index', [
+    return view('dashboard', [
         'mahasiswa' => Mahasiswa::count(),
         'unit_kegiatan_mahasiswa' => UnitKegiatanMahasiswa::count(),
         'anggota_ukm' => AnggotaUKM::count(),
